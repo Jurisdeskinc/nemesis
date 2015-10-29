@@ -12,31 +12,24 @@ sudo apt-get update
 
 echo "it is now time to install phusion passenger"
 
-sudo apt-get install -y passenger
-sudo mkdir -p ~nginxhostingco/.ssh
+sudo apt-get install -y nginx-extras passenger 
 
-sudo sh -c "cat $HOME/.ssh/authorized_keys >> ~nginxhostinco/.ssh/authorized_keys"
-
-sudo chown -R myappuser: ~nginxhostingco/.ssh
-
-sudo chmod 700 ~myappuser/.ssh
-
-sudo sh -c "chmod 600 ~nginxhostingco/.ssh/*"
-
-echo "your site is now secure and nginx has been installed"
+echo "your site is phusionized and nginx has been installed"
 
 sudo add-apt-repository ppa:chris-lea/redis-server
 sudo apt-get install -y git nodejs npm redis-server imagemagick build-essential curl
 sudo apt-get update && sudo apt-get dist-upgrade
 
-sudo mkdir -p /var/www/
-
-git clone https://github.com/jdesk/nemasis /var/www/nemesis
-
+sudo mkdir -p /var/www/nemesis
 cd /var/www/nemesis
 
-npm install --production
+git clone https://github.com/jdesk/nemasis /var/www/nemesis
+git clone https://github.com/Jdesk/nginx-proxy.git /etc/nginx/sites-available/nodebb
+sudo ln -s /etc/nginx/sites-available/nodebb /etc/nginx/sites-enabled/nodebb
+cd /var/www/nemesis
 
-node app
+sudo npm install --production
+
+sudo npm start
 
 echo "please visit the above address to finish your install"
