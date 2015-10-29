@@ -1,4 +1,4 @@
-echo "Phusion Passenger is Coming to a box near You"
+echo "Phusion Passenger with a flare of NodeBB is Coming to a box near You"
 
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 561F9B9CAC40B2F7 
 
