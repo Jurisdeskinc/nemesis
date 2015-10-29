@@ -1,4 +1,4 @@
-image: http://jbthechamp/my-docker-image:version
+image: https://hub.docker.com/r/jbthechamp/mynodebb
 script:
   - ./.drone/build.sh 
 deploy:
