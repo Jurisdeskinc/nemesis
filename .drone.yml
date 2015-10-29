@@ -1,0 +1,11 @@
+image: http://jbthechamp/my-docker-image:version
+script:
+  - ./.drone/build.sh 
+deploy:
+  bash:
+    script:
+      - ./drone/deploy.sh
+notify:
+  email:
+    recipients:
+      - james@jurisdesk.com
