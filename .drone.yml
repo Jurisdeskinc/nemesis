@@ -1,4 +1,4 @@
-image: https://hub.docker.com/r/jbthechamp/mynodebb
+image: node:0.10-onbuild
 script:
   - ./.drone/build.sh 
 deploy:
