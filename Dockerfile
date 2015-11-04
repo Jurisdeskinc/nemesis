@@ -1,4 +1,4 @@
-buildpack-deps:jessie
+FROM buildpack-deps:jessie
 
 # verify gpg and sha256: http://nodejs.org/dist/v0.10.31/SHASUMS256.txt.asc
 # gpg: aka "Timothy J Fontaine (Work) <tj.fontaine@joyent.com>"
