@@ -1,4 +1,4 @@
-image: buildpack-deps:jessie
+image: readytalk/nodejs
 script:
   - set -ex \
 	&& for key in \
