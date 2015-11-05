@@ -33,4 +33,3 @@ ENV NODE_ENV=production \
 
 CMD node app --setup && npm start
 EXPOSE 4567
-FROM 
