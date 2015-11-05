@@ -21,11 +21,10 @@ RUN curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-
 	&& tar -xzf "node-v$NODE_VERSION-linux-x64.tar.gz" -C /usr/local --strip-components=1 \
 	&& rm "node-v$NODE_VERSION-linux-x64.tar.gz" SHASUMS256.txt.asc \
 	
-RUN npm install -g npm@"$NPM_VERSION" \
-	npm cache clear \
-        add-apt-repository ppa:chris-lea/redis-server \
-        apt-get update && sudo apt-get dist-upgrade \
-        npm install -g express
+RUN npm install -g npm@"$NPM_VERSION" 
+RUN npm cache clear \
+RUN add-apt-repository ppa:chris-lea/redis-server && apt-get update && sudo apt-get dist-upgrade \
+RUN npm install -g express
 
 CMD [ "node" ]
 
