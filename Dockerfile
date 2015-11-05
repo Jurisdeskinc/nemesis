@@ -20,11 +20,8 @@ RUN curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-
 	&& grep " node-v$NODE_VERSION-linux-x64.tar.gz\$" SHASUMS256.txt.asc | sha256sum -c - \
 	&& tar -xzf "node-v$NODE_VERSION-linux-x64.tar.gz" -C /usr/local --strip-components=1 \
 	&& rm "node-v$NODE_VERSION-linux-x64.tar.gz" SHASUMS256.txt.asc \
-	
-RUN npm install -g npm@"$NPM_VERSION" 
-RUN npm cache clear \
-RUN add-apt-repository ppa:chris-lea/redis-server && apt-get update && sudo apt-get dist-upgrade \
-RUN npm install -g express
+	&& npm install -g npm@"$NPM_VERSION" \
+	&& npm cache clear
 
 CMD [ "node" ]
 
