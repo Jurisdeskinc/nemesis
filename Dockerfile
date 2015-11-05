@@ -25,6 +25,10 @@ RUN curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-
 
 CMD [ "node" ]
 
+RUN         apt-get update && apt-get install -y redis-server
+EXPOSE      6379
+ENTRYPOINT  ["/usr/bin/redis-server"]
+
 FROM node:0.10-onbuild
 
 ENV NODE_ENV=production \
