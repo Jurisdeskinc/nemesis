@@ -1,4 +1,4 @@
-FROM buildpack-deps:jessie
+FROM buildpack-deps:trusty-scm
 
 # verify gpg and sha256: http://nodejs.org/dist/v0.10.31/SHASUMS256.txt.asc
 # gpg: aka "Timothy J Fontaine (Work) <tj.fontaine@joyent.com>"
@@ -27,7 +27,7 @@ CMD [ "node" ]
 
 RUN         apt-get update && apt-get install -y redis-server
 EXPOSE      6379
-ENTRYPOINT  ["/usr/bin/redis-server"]
+ENTRYPOINT  ["/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin"]
 
 FROM node:0.10-onbuild
 
